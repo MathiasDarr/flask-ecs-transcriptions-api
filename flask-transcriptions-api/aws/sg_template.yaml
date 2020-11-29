@@ -1,0 +1,28 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: This stack deploys the dakobed-core-services network infrastructure and IAM resources
+  to be used for a service hosted in Amazon ECS using AWS Fargate.
+
+Parameters:
+  ServiceName:
+    Type: String
+    Default: flask-services
+
+  ContainerPort:
+    Type: Number
+    Default: 5000
+
+
+
+Resources:
+#  ContainerSecurityGroup:
+#    Type: AWS::EC2::SecurityGroup
+#    Properties:
+#      GroupDescription: !Join [ '', [ !Ref ServiceName, ContainerSecurityGroup ] ]
+#      VpcId: vpc-0717a1cb195d96eff
+#      SecurityGroupIngress:
+#        - IpProtocol: tcp
+#          CidrIp: 0.0.0.0/0
+#          FromPort: !Ref ContainerPort
+#          ToPort: !Ref ContainerPort
+
+

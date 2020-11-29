@@ -1,0 +1,27 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: This stack deploys the dakobed-core-services network infrastructure and IAM resources
+  to be used for a service hosted in Amazon ECS using AWS Fargate.
+
+Parameters:
+  NetworkStackName:
+    Type: String
+    Default: dakobed-vpc-stack
+
+Resources:
+  FargateContainerSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Access to the fargate containers from the Internet
+      VpcId:
+        Fn::ImportValue: dakobed-vpc-stack:VPCId
+
+
+
+
+#      SecurityGroupIngress:
+#          # Allow access to NLB from anywhere on the internet
+#          - CidrIp: !FindInMap ['SubnetConfig', 'VPC', 'CIDR']
+#            IpProtocol: -1
+
+
+
